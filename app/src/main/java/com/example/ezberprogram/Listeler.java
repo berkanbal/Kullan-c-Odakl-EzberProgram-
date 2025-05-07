@@ -1,7 +1,11 @@
 package com.example.ezberprogram;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -17,8 +21,10 @@ import java.util.List;
 
 public class Listeler extends AppCompatActivity {
 
-    ListView listeAdlari ;
+    ListView listeAdlari;
+    Button btn;
     List<String> jsonFiles;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,11 +57,29 @@ public class Listeler extends AppCompatActivity {
         // ListView'e verileri bağla
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, jsonFiles);
         listeAdlari.setAdapter(adapter);
+
+        // ListView için tıklama dinleyicisi ekle
+        listeAdlari.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                String selectedListName = jsonFiles.get(position);
+                Intent listeCalismaIntent = new Intent(getApplicationContext(), ListeCalisma.class);
+                listeCalismaIntent.putExtra("SELECTED_LIST_NAME", selectedListName);
+                startActivity(listeCalismaIntent);
+            }
+        });
+
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent denemeListesi = new Intent(getApplicationContext(), ListeCalisma.class);
+                startActivity(denemeListesi);
+            }
+        });
     }
-
-
 
     public void tanimlama(){
         listeAdlari = findViewById(R.id.jsonlist);
+        btn = findViewById(R.id.button11);
     }
 }

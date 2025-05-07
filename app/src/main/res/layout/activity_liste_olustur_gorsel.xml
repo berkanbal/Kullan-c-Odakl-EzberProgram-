@@ -5,6 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#D6F8D8"
     tools:context=".ListeOlustur_Gorsel">
 
     <TextView
@@ -38,6 +39,7 @@
         android:layout_height="38dp"
         android:layout_marginTop="352dp"
         android:text="Görsel Ekle"
+        android:backgroundTint="#009688"
         android:textSize="11dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -62,6 +64,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="96dp"
         android:text="Ekle"
+        android:backgroundTint="#009688"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -73,6 +76,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:text="Kaydet"
+        android:backgroundTint="#009688"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button5" />
